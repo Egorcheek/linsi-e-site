@@ -1,0 +1,47 @@
+body {
+    margin: 0;
+    background: white;
+    font-family: Arial, sans-serif;
+}
+
+/* Центральный блок */
+.blog-container {
+    width: 50%;
+    margin: 0 auto;
+    min-height: 100vh;
+    border-left: 2px solid black;
+    border-right: 2px solid black;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* Хедер */
+.blog-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 2px solid black;
+    padding-bottom: 10px;
+}
+
+.blog-header h1 {
+    margin: 0;
+    text-decoration: underline;
+}
+
+.back {
+    text-decoration: none;
+    color: black;
+}
+
+/* Лента */
+.posts {
+    margin-top: 20px;
+}
+
+/* Пост */
+.post {
+    background: #f2f2f2;
+    padding: 10px;
+    margin-bottom: 10px;
+}
