@@ -108,6 +108,11 @@ nav a:hover {
     left: 10px;
 }
 
+.counter {
+    margin-top: 20px;
+    text-align: center;
+}
+
 #playBtn {
     background: white;
     border: 1px solid black;
