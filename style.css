@@ -4,22 +4,27 @@ body {
     color: black;
     background: url("assets/bg.jpg") no-repeat left center;
     background-size: cover;
+    height: 100vh;
+    overflow: hidden;
 }
 
 /* Основной контейнер */
 .container {
     display: flex;
     justify-content: flex-end;
+    height: 100%;
 }
 
 /* Правая панель */
 .right-panel {
-    width: 350px;
-    min-height: 100vh;
+    width: 320px;
+    height: 100%;
     border-left: 2px solid black;
+    border-right: 2px solid black;
     padding: 20px;
-    background: rgba(255, 255, 255, 0.85);
-    backdrop-filter: blur(2px);
+    background: rgba(255, 255, 255, 0.9);
+    position: relative;
+    box-sizing: border-box;
 }
 
 /* Лого */
