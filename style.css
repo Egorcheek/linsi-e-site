@@ -1,1 +1,97 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    color: black;
+    background: url("assets/bg.jpg") no-repeat left center;
+    background-size: cover;
+}
 
+/* Основной контейнер */
+.container {
+    display: flex;
+    justify-content: flex-end;
+}
+
+/* Правая панель */
+.right-panel {
+    width: 350px;
+    min-height: 100vh;
+    border-left: 2px solid black;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(2px);
+}
+
+/* Лого */
+.logo {
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+/* Навигация */
+nav a {
+    display: block;
+    text-decoration: none;
+    color: black;
+    margin-bottom: 5px;
+}
+
+nav a:hover {
+    color: #c26542;
+}
+
+/* Профиль */
+.profile {
+    display: flex;
+    margin-top: 20px;
+    gap: 10px;
+}
+
+.profile img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+}
+
+/* Updates */
+.updates {
+    flex: 1;
+}
+
+.updates-title {
+    font-size: 12px;
+    margin-bottom: 5px;
+}
+
+.updates-list {
+    max-height: 60px;
+    overflow-y: auto;
+    font-size: 12px;
+}
+
+/* Приветствие */
+.welcome {
+    margin-top: 30px;
+    border: 1px solid black;
+    padding: 10px;
+}
+
+/* Song */
+.song {
+    position: absolute;
+    bottom: 20px;
+    font-size: 12px;
+}
+
+/* Музыка */
+.music-player {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+}
+
+#playBtn {
+    background: white;
+    border: 1px solid black;
+    cursor: pointer;
+}
