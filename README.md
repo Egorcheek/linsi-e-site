@@ -2,4 +2,4 @@
 Мой личный сайт #IndieWeb 
 https://egorcheek.github.io/linsi-e-site/
 или
-linsi-e.ru
+[linsi-e.ru](http://linsi-e.ru/)
