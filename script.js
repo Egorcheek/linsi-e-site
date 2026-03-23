@@ -5,7 +5,8 @@ let playing = false;
 
 btn.addEventListener("click", () => {
     if (!playing) {
-        music.play();
+        music.muted = false;
+        music.play().catch(err => console.log(err));
         btn.textContent = "⏸";
     } else {
         music.pause();
