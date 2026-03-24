@@ -1,66 +1,68 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <title>linsi.e</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<title>insi.e</title>
+<link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-<!-- Фоновая музыка -->
-<div class="music-player">
-    <button id="playBtn">▶</button>
-    <span class="track-name">track: demo song</span>
+<div class="layout">
 
-    <audio id="bgMusic" loop>
-        <source src="assets/music.mp3" type="audio/mpeg">
-    </audio>
-</div>
+    <div class="left"></div>
 
-<div class="container">
+    <div class="right">
 
-    <!-- Правая панель -->
-    <div class="right-panel">
+        <!-- ПЛЕЕР (заглушка) -->
+        <div class="player">
+            ▶ track: demo song — 1:10
+        </div>
 
-        <h1 class="logo">linsi.e</h1>
+        <div class="content">
 
-        <nav>
-            <a href="#">music</a>
-            <a href="blog.html">blog</a>
-            <a href="#">links</a>
-        </nav>
+            <div class="logo">insi.e</div>
 
-        <div class="profile">
-            <img src="assets/avatar.jpg" alt="avatar">
-            <div class="updates">
-                <p class="updates-title">Last updates:</p>
-                <div class="updates-list">
-                    <p>+ added track</p>
-                    <p>+ fixed layout</p>
-                    <p>+ new blog post</p>
-                    <p>+ something else</p>
+            <nav>
+                <a href="#">music</a>
+                <a href="blog.html">blog</a>
+                <a href="#">links</a>
+            </nav>
+
+            <div class="profile">
+                <img src="assets/avatar.jpg">
+                <div class="updates">
+                    <div class="updates-title">Last updates:</div>
+                    <div class="updates-list">
+                        <p>+ added track</p>
+                        <p>+ fixed layout</p>
+                        <p>+ new blog post</p>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <div class="welcome">
-            <p>Привет!<br>Добро пожаловать на мой сайт!</p>
-        </div>
+            <div class="welcome">
+                Привет!<br>
+                Добро пожаловать на мой сайт!
+            </div>
 
-        <div class="song">
-            <p>song of the day: Сергей Курёхин - Лето</p>
-        </div>
+            <div class="footer">
 
-        <div class="counter">
-            <a href="https://www.hitwebcounter.com/" target="_blank">
-                <img src="https://hitwebcounter.com/counter/counter.php?page=21484535&style=0024&nbdigits=5&type=page&initCount=0" />
-            </a>
-        </div>            
+                <div class="counter">
+                    <img src="https://hitwebcounter.com/counter/counter.php?page=21484535&style=0024&nbdigits=5&type=page&initCount=0">
+                </div>
+
+                <div class="song">
+                    song of the day: Сергей Курёхин — Лето
+                </div>
+
+            </div>
+
+        </div>
 
     </div>
 
 </div>
 
-<script src="script.js"></script>
 </body>
 </html>
