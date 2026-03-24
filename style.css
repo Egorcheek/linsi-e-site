@@ -111,7 +111,10 @@ nav a:hover {
 }
 
 .counter {
-    margin-top: 20px;
+    position: absolute;
+    bottom: 50px; /* выше song */
+    left: 0;
+    right: 0;
     text-align: center;
 }
 
