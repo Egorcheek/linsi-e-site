@@ -1,14 +1,20 @@
-// ---------- ПЛЕЕР ----------
-let tracks = [];
-let current = 0;
-
 const audio = document.getElementById("audio");
+
 const playBtn = document.getElementById("play");
 const nextBtn = document.getElementById("next");
 const prevBtn = document.getElementById("prev");
+
 const progress = document.getElementById("progress");
 const volume = document.getElementById("volume");
+
 const nameEl = document.getElementById("track-name");
+const timeEl = document.getElementById("time");
+
+const content = document.getElementById("page-content");
+const titleEl = document.getElementById("page-title");
+
+let tracks = [];
+let current = 0;
 
 // загрузка треков
 fetch('tracks.json')
@@ -16,31 +22,22 @@ fetch('tracks.json')
   .then(data => {
     tracks = data;
 
-    // если нет tracks.json — fallback
-    if (!tracks.length) {
+    if (tracks.length > 0) {
+        loadTrack(0);
+    } else {
         audio.src = "assets/music.mp3";
         nameEl.textContent = "music.mp3";
-    } else {
-        loadTrack(0);
     }
-});
+  });
 
+// загрузка трека
 function loadTrack(i) {
     current = i;
     audio.src = tracks[i].file;
     nameEl.textContent = tracks[i].title;
-
-// если длинное — включаем анимацию
-    setTimeout(() => {
-        if (nameEl.scrollWidth > nameEl.clientWidth) {
-            nameEl.classList.add("scrolling");
-        } else {
-            nameEl.classList.remove("scrolling");
-        }
-    }, 100);
 }
 
-// play/pause
+// play
 playBtn.onclick = () => {
     if (audio.paused) {
         audio.play();
@@ -68,7 +65,17 @@ prevBtn.onclick = () => {
 // прогресс
 audio.ontimeupdate = () => {
     progress.value = (audio.currentTime / audio.duration) * 100 || 0;
+
+    timeEl.textContent =
+        format(audio.currentTime) + " / " + format(audio.duration);
 };
+
+function format(t) {
+    if (!t) return "0:00";
+    let m = Math.floor(t / 60);
+    let s = Math.floor(t % 60).toString().padStart(2, "0");
+    return `${m}:${s}`;
+}
 
 // перемотка
 progress.oninput = () => {
@@ -76,64 +83,65 @@ progress.oninput = () => {
 };
 
 // громкость
+volume.value = 0.75;
+audio.volume = 0.75;
+
 volume.oninput = () => {
     audio.volume = volume.value;
 };
 
-const timeEl = document.getElementById("time");
-
-// время
-audio.ontimeupdate = () => {
-    const current = formatTime(audio.currentTime);
-    const total = formatTime(audio.duration);
-
-    timeEl.textContent = `${current} / ${total}`;
-
-    progress.value = (audio.currentTime / audio.duration) * 100 || 0;
-};
-
-function formatTime(sec) {
-    if (!sec) return "0:00";
-    const m = Math.floor(sec / 60);
-    const s = Math.floor(sec % 60).toString().padStart(2, '0');
-    return `${m}:${s}`;
-}
-
-// громкость 75%
-audio.volume = 0.75;
-volume.value = 0.75;
-
-
-// ---------- НАВИГАЦИЯ ----------
-const content = document.getElementById("page-content");
+// -------- НАВИГАЦИЯ --------
 
 document.querySelectorAll("nav a").forEach(link => {
-    link.onclick = (e) => {
+    link.addEventListener("click", function(e) {
         e.preventDefault();
-        loadPage(link.dataset.page);
-    };
+        loadPage(this.dataset.page);
+    });
 });
 
 function loadPage(page) {
-    const titleEl = document.getElementById("page-title");
+
     if (page === "home") {
-        titleEl.innerHTML = "";
+        titleEl.textContent = "home";
+
         content.innerHTML = `
+            <div class="profile">
+                <img src="assets/avatar.jpg">
+                <div class="updates">
+                    <div class="updates-title">Last updates:</div>
+                    <div class="updates-list">
+                        <p>+ added track</p>
+                        <p>+ new blog post</p>
+                    </div>
+                </div>
+            </div>
+
             <div class="welcome">
-                Привет!<br>Добро пожаловать на мой сайт!
+                Привет! Добро пожаловать!
+            </div>
+
+            <div class="footer">
+                <div class="counter">
+                    <img src="https://hitwebcounter.com/counter/counter.php?page=21484535&style=0024&nbdigits=5&type=page&initCount=0">
+                </div>
+                <div class="song">
+                    song of the day: ...
+                </div>
             </div>
         `;
     }
 
     if (page === "blog") {
-        titleEl.innerHTML = "blog";
+        titleEl.textContent = "blog";
+
         fetch('posts.json')
           .then(res => res.json())
           .then(posts => {
+
             content.innerHTML = `<div class="posts"></div>`;
             const container = document.querySelector('.posts');
 
-            posts.reverse().forEach(post => {
+            posts.forEach(post => {
                 const el = document.createElement('div');
                 el.className = 'post';
 
@@ -149,20 +157,20 @@ function loadPage(page) {
     }
 
     if (page === "music") {
-        titleEl.innerHTML = "music";
+        titleEl.textContent = "music";
+
         fetch('tracks.json')
           .then(res => res.json())
-          .then(tracks => {
+          .then(list => {
 
             content.innerHTML = `<div class="music-list"></div>`;
-            const list = document.querySelector(".music-list");
+            const container = document.querySelector(".music-list");
 
-            tracks.forEach((track, i) => {
+            list.forEach((track, i) => {
                 const el = document.createElement("div");
                 el.className = "track";
 
                 el.innerHTML = `
-                    <img src="${track.cover}">
                     <span>${track.title}</span>
                 `;
 
@@ -171,7 +179,7 @@ function loadPage(page) {
                     audio.play();
                 };
 
-                list.appendChild(el);
+                container.appendChild(el);
             });
 
           });
@@ -179,35 +187,5 @@ function loadPage(page) {
 
 }
 
-//home only блоки
-document.getElementById("page-title").innerHTML = "";
-
-content.innerHTML = `
-    <div class="profile">
-        <img src="assets/avatar.jpg">
-        <div class="updates">
-            <div class="updates-title">Last updates:</div>
-            <div class="updates-list">
-                <p>+ added track</p>
-                <p>+ new blog post</p>
-            </div>
-        </div>
-    </div>
-
-    <div class="welcome">
-        Привет!<br>Добро пожаловать на мой сайт!
-    </div>
-
-    <div class="spacer"></div>
-
-    <div class="footer">
-        <div class="counter">
-            <img src="https://hitwebcounter.com/counter/counter.php?page=21484535&style=0024&nbdigits=5&type=page&initCount=0">
-        </div>
-        <div class="song">
-            song of the day: ...
-        </div>
-    </div>
-`;
-// первая загрузка
+// старт
 loadPage("home");
