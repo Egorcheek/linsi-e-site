@@ -7,20 +7,20 @@ body {
     overflow: hidden;
 }
 
-/* Главный layout */
 .layout {
     display: flex;
     height: 100vh;
 }
 
-/* Левая часть (фон) */
+/* левая часть */
 .left {
     width: 50%;
 }
 
-/* Правая часть */
-.right {
-    width: 50%;
+/* центральный блок */
+.center {
+    width: 33%;
+    min-width: 320px;
     border-left: 2px solid black;
     border-right: 2px solid black;
     background: rgba(255,255,255,0.9);
@@ -28,35 +28,41 @@ body {
     flex-direction: column;
 }
 
-/* ВЕРХНИЙ ПЛЕЕР */
-.player {
-    border-bottom: 2px solid black;
-    padding: 8px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-size: 14px;
+/* правая пустая часть */
+.right {
+    flex: 1;
 }
+
 
 /* Контент */
 .content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.spacer {
     flex: 1;
-    overflow: hidden;
-    padding: 20px;
-    position: relative;
 }
 
 /* ЛОГО */
 .logo {
-    font-size: 56px;
+    font-size: 64px; /* ← меняй здесь */
     text-decoration: underline;
-    margin-bottom: 20px;
+    padding: 20px;
+}
+
+/* ПЛЕЕР */
+.player {
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
+    padding: 8px 20px;
 }
 
 /* МЕНЮ */
 nav a {
     display: block;
-    font-size: 22px;
+    font-size: 24px; /* ← и здесь */
     margin-bottom: 10px;
     text-decoration: none;
     color: black;
