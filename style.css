@@ -47,6 +47,8 @@ body {
 #page-content {
     flex: 1;
     overflow-y: auto;
+    display: flex;              /* ← ВАЖНО */
+    flex-direction: column;     /* ← ВАЖНО */
 }
 
 .music-list, .posts {
@@ -177,7 +179,6 @@ nav a:hover {
 /* НИЗ */
 .footer {
     margin-top: auto;
-    padding-top: 10px;
 }
 
 /* COUNTER */
