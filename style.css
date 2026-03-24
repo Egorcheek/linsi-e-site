@@ -173,3 +173,24 @@ nav a {
     font-size: 12px;
     color: #777;
 }
+
+.music-list {
+    overflow-y: auto;
+    max-height: 100%;
+}
+
+.track {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: #f2f2f2;
+    padding: 10px;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+.track img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+}
