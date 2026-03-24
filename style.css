@@ -110,10 +110,8 @@ nav a {
 
 /* НИЗ */
 .footer {
-    position: absolute;
-    bottom: 10px;
-    left: 20px;
-    right: 20px;
+    margin-top: auto;
+    padding-top: 10px;
 }
 
 /* COUNTER */
@@ -122,13 +120,11 @@ nav a {
     margin-bottom: 5px;
 }
 
-/* SONG */
 .song {
     font-size: 14px;
     border-top: 1px solid #ccc;
     padding-top: 5px;
 }
-
 /* BLOG */
 .blog-top {
     position: relative;
