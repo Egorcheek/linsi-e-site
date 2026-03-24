@@ -29,6 +29,15 @@ function loadTrack(i) {
     current = i;
     audio.src = tracks[i].file;
     nameEl.textContent = tracks[i].title;
+
+// если длинное — включаем анимацию
+    setTimeout(() => {
+        if (nameEl.scrollWidth > nameEl.clientWidth) {
+            nameEl.classList.add("scrolling");
+        } else {
+            nameEl.classList.remove("scrolling");
+        }
+    }, 100);
 }
 
 // play/pause
@@ -71,7 +80,28 @@ volume.oninput = () => {
     audio.volume = volume.value;
 };
 
-audio.volume = 0.5;
+const timeEl = document.getElementById("time");
+
+// время
+audio.ontimeupdate = () => {
+    const current = formatTime(audio.currentTime);
+    const total = formatTime(audio.duration);
+
+    timeEl.textContent = `${current} / ${total}`;
+
+    progress.value = (audio.currentTime / audio.duration) * 100 || 0;
+};
+
+function formatTime(sec) {
+    if (!sec) return "0:00";
+    const m = Math.floor(sec / 60);
+    const s = Math.floor(sec % 60).toString().padStart(2, '0');
+    return `${m}:${s}`;
+}
+
+// громкость 75%
+audio.volume = 0.75;
+volume.value = 0.75;
 
 
 // ---------- НАВИГАЦИЯ ----------
