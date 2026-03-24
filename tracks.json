@@ -1,0 +1,12 @@
+[
+  {
+    "title": "Track 1",
+    "file": "assets/music1.mp3",
+    "cover": "assets/cover1.jpg"
+  },
+  {
+    "title": "Track 2",
+    "file": "assets/music2.mp3",
+    "cover": "assets/cover2.jpg"
+  }
+]
