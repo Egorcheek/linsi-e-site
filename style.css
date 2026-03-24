@@ -10,17 +10,19 @@ body {
 
 /* Основной контейнер */
 .container {
-    display: flex;
-    justify-content: flex-end;
-    height: 100%;
-    padding-left: 66%; /* ← ключ */
-    box-sizing: border-box;
+     display: flex;
+    height: 100vh;
+}
+
+.container::before {
+    content: "";
+    width: 66.66%;
 }
 
 /* Правая панель */
 .right-panel {
-    width: 320px;
-    height: 100%;
+    width: 33.33%;
+    max-width: 360px; /* чтобы не растягивалась на больших экранах */
     border-left: 2px solid black;
     border-right: 2px solid black;
     padding: 20px;
