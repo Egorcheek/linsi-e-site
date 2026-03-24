@@ -21,7 +21,7 @@ body {
 
 /* Правая панель */
 .right-panel {
-    width: 33.33%;
+    width: 50%;
     max-width: 360px; /* чтобы не растягивалась на больших экранах */
     border-left: 2px solid black;
     border-right: 2px solid black;
