@@ -41,10 +41,10 @@ function loadTrack(i) {
 playBtn.onclick = () => {
     if (audio.paused) {
         audio.play();
-        playBtn.textContent = "⏸";
+        playBtn.textContent = "❚❚"; // пауза
     } else {
         audio.pause();
-        playBtn.textContent = "▶";
+        playBtn.textContent = "▶"; // плей
     }
 };
 
