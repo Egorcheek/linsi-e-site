@@ -190,10 +190,9 @@ function loadPage(page) {
 
         content.innerHTML = `
             <div class="links">
-                <a href="#" target="_blank">instagram</a>
-                <a href="#" target="_blank">telegram</a>
-                <a href="#" target="_blank">youtube</a>
+                <a href="#" target="_blank">telegram</a>                
                 <a href="#" target="_blank">soundcloud</a>
+                <a href="#" target="_blank">youtube</a>
             </div>
         `;
     }
