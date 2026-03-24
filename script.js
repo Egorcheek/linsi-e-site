@@ -15,8 +15,15 @@ fetch('tracks.json')
   .then(res => res.json())
   .then(data => {
     tracks = data;
-    loadTrack(0);
-  });
+
+    // если нет tracks.json — fallback
+    if (!tracks.length) {
+        audio.src = "assets/music.mp3";
+        nameEl.textContent = "music.mp3";
+    } else {
+        loadTrack(0);
+    }
+});
 
 function loadTrack(i) {
     current = i;
