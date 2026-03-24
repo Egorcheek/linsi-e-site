@@ -70,9 +70,8 @@ body {
 
 /* ПЛЕЕР */
 .player {
-    border-top: 2px solid black;
-    border-bottom: 2px solid black;
-    padding: 10px;
+    border-bottom: 2px solid black; /* только одна линия */
+    padding: 10px 20px;
     display: flex;
     align-items: center;
     gap: 10px;
@@ -120,9 +119,13 @@ nav a {
 }
 
 #page-title {
-    padding: 10px 20px;
-    font-size: 36px;
-    border-bottom: 2px solid black;
+    font-size: 32px;
+    margin: 10px 20px; /* небольшой отступ */
+}
+
+/* если title пустой — убираем его высоту */
+#page-title:empty {
+    display: none;
 }
 
 /* ПРОФИЛЬ */
