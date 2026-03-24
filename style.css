@@ -39,6 +39,8 @@ body {
     display: flex;
     flex-direction: column;
     height: 100%;
+    padding: 20px; /* ← ВОТ ЭТО ВЕРНЁТ ОТСТУПЫ */
+    box-sizing: border-box;
 }
 
 .spacer {
