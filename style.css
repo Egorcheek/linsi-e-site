@@ -47,28 +47,72 @@ body {
     flex: 1;
 }
 
+.header {
+    padding: 20px;
+}
+
 /* ЛОГО */
 .logo {
     font-size: 64px; /* ← меняй здесь */
     text-decoration: underline;
-    padding: 20px;
+    margin-bottom: 10px;
 }
 
 /* ПЛЕЕР */
 .player {
     border-top: 2px solid black;
     border-bottom: 2px solid black;
-    padding: 8px 20px;
-    font-size: 14px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* прогресс длиннее */
+#progress {
+    flex: 1;
+}
+
+/* громкость короче */
+#volume {
+    width: 80px;
+}
+
+/* акцентный цвет */
+input[type="range"] {
+    accent-color: #c26542;
+}
+
+/* название трека */
+#track-name {
+    max-width: 120px;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+/* бегущая строка */
+#track-name.scrolling {
+    animation: scrollText 6s linear infinite;
+}
+
+@keyframes scrollText {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-100%); }
 }
 
 /* МЕНЮ */
 nav a {
     display: block;
-    font-size: 24px; /* ← и здесь */
-    margin-bottom: 10px;
+    font-size: 24px;
+    margin-bottom: 6px;
     text-decoration: none;
     color: black;
+}
+
+#page-title {
+    padding: 10px 20px;
+    font-size: 36px;
+    border-bottom: 2px solid black;
 }
 
 /* ПРОФИЛЬ */
