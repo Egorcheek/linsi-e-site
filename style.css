@@ -38,8 +38,8 @@ body {
 .content {
     display: flex;
     flex-direction: column;
-    height: 100%;
-    padding: 20px; /* ← ВОТ ЭТО ВЕРНЁТ ОТСТУПЫ */
+    flex: 1; /* ← ВАЖНО */
+    padding: 20px;
     box-sizing: border-box;
     overflow: hidden;
 }
@@ -212,10 +212,7 @@ nav a:hover {
 }
 
 .posts {
-    overflow-y: auto;
-    height: 100%;
     margin-top: 15px;
-    flex: 1;
 }
 
 /* POST */
@@ -240,8 +237,6 @@ nav a:hover {
 }
 
 .music-list {
-    overflow-y: auto;
-    max-height: 100%;
 }
 
 .track {
