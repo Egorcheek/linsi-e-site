@@ -14,34 +14,40 @@
 
     <div class="center">
 
-        <!-- ЛОГО -->
-        <div class="logo">linsi.e</div>
+    <!-- ШАПКА -->
+    <div class="header">
 
-        <!-- ПЛЕЕР -->
-        <div class="player">
-            <button id="prev">⏮</button>
-            <button id="play">▶</button>
-            <button id="next">⏭</button>
+        <div class="logo">insi.e</div>
 
-            <span id="track-name">no track</span>
+        <nav>
+            <a href="#" data-page="home">home</a>
+            <a href="#" data-page="music">music</a>
+            <a href="#" data-page="blog">blog</a>
+            <a href="#" data-page="links">links</a>
+        </nav>
 
-            <input type="range" id="progress" value="0">
-            <input type="range" id="volume" min="0" max="1" step="0.01" value="0.5">
-        </div>
+    </div>
 
-        <audio id="audio"></audio>
+    <!-- ПЛЕЕР -->
+    <div class="player">
+        <button id="prev">⏮</button>
+        <button id="play">▶</button>
+        <button id="next">⏭</button>
 
-        <div class="content">
+        <span id="track-name"></span>
 
-            <!-- МЕНЮ -->
-            <nav>
-                <a href="#" data-page="home">home</a>
-                <a href="#" data-page="music">music</a>
-                <a href="#" data-page="blog">blog</a>
-                <a href="#" data-page="links">links</a>
-            </nav>
-            
-            <div id="page-content"></div>
+        <span id="time">0:00 / 0:00</span>
+
+        <input type="range" id="progress" value="0">
+        <input type="range" id="volume" min="0" max="1" step="0.01">
+    </div>
+
+    <!-- ЗАГОЛОВОК СТРАНИЦЫ -->
+    <div id="page-title"></div>
+
+    <!-- КОНТЕНТ -->
+    <div class="content">
+        <div id="page-content"></div>
             
             <!-- ПРОФИЛЬ -->
             <div class="profile">
