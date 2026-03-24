@@ -128,15 +128,21 @@ nav a {
 }
 
 /* BLOG */
-.blog-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 2px solid black;
-    padding-bottom: 10px;
+.blog-top {
+    position: relative;
+    padding: 20px;
+}
+
+.back {
+    position: absolute;
+    left: 20px;
+    top: 25px;
+    text-decoration: none;
+    color: black;
 }
 
 .blog-title {
+    text-align: center;
     font-size: 48px;
     text-decoration: underline;
 }
