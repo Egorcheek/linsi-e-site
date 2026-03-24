@@ -5,12 +5,17 @@ let playing = false;
 
 btn.addEventListener("click", () => {
     if (!playing) {
-        music.muted = false;
-        music.play().catch(err => console.log(err));
-        btn.textContent = "⏸";
+        music.play()
+            .then(() => {
+                btn.textContent = "⏸";
+                playing = true;
+            })
+            .catch(err => {
+                console.log("Не удалось воспроизвести:", err);
+            });
     } else {
         music.pause();
         btn.textContent = "▶";
+        playing = false;
     }
-    playing = !playing;
 });
