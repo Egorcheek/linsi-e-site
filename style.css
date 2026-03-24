@@ -5,6 +5,7 @@ body {
     background-size: cover;
     height: 100vh;
     overflow: hidden;
+    overflow-x: hidden;
 }
 
 .layout {
@@ -47,8 +48,9 @@ body {
 #page-content {
     flex: 1;
     overflow-y: auto;
-    display: flex;              /* ← ВАЖНО */
-    flex-direction: column;     /* ← ВАЖНО */
+    display: flex;              
+    flex-direction: column;     
+    min-height: 0;
 }
 
 .music-list, .posts {
@@ -197,6 +199,10 @@ nav a:hover {
     border-top: 1px solid #ccc;
     padding-top: 5px;
 }
+
+.footer {
+    padding-bottom: 20px;
+}
 /* BLOG */
 .blog-top {
     position: relative;
@@ -314,8 +320,33 @@ nav a:hover {
         flex-wrap: wrap; /* чтобы не ломался */
     }
 
+    /* первая строка */
+    .player button,
     #track-name {
-        max-width: 100px;
+        order: 1;
+    }
+
+    /* вторая строка */
+    #time,
+    #progress,
+    #volume {
+        order: 2;
+        width: 100%;
+    }
+
+    /* прогресс растягиваем */
+    #progress {
+        flex: 1;
+    }
+
+    /* выравнивание второй строки */
+    #time {
+        width: auto;
+        font-size: 14px;
+    }
+
+    #volume {
+        width: 80px;
     }
 
     .content {
