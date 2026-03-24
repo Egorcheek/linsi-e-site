@@ -19,18 +19,30 @@
 
         <!-- ПЛЕЕР -->
         <div class="player">
-            ▶ track: demo song — 1:10
+            <button id="prev">⏮</button>
+            <button id="play">▶</button>
+            <button id="next">⏭</button>
+
+            <span id="track-name">no track</span>
+
+            <input type="range" id="progress" value="0">
+            <input type="range" id="volume" min="0" max="1" step="0.01" value="0.5">
         </div>
+
+        <audio id="audio"></audio>
 
         <div class="content">
 
             <!-- МЕНЮ -->
             <nav>
-                <a href="#">music</a>
-                <a href="blog.html">blog</a>
-                <a href="#">links</a>
+                <a href="#" data-page="home">home</a>
+                <a href="#" data-page="music">music</a>
+                <a href="#" data-page="blog">blog</a>
+                <a href="#" data-page="links">links</a>
             </nav>
-
+            
+            <div id="page-content"></div>
+            
             <!-- ПРОФИЛЬ -->
             <div class="profile">
                 <img src="assets/avatar.jpg">
