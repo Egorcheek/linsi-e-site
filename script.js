@@ -185,6 +185,19 @@ function loadPage(page) {
           });
     }
 
+    if (page === "links") {
+        titleEl.textContent = "links";
+
+        content.innerHTML = `
+            <div class="links">
+                <a href="#" target="_blank">instagram</a>
+                <a href="#" target="_blank">telegram</a>
+                <a href="#" target="_blank">youtube</a>
+                <a href="#" target="_blank">soundcloud</a>
+            </div>
+        `;
+    }
+
 }
 
 // старт
