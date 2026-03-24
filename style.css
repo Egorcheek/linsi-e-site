@@ -1,125 +1,163 @@
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-    color: black;
     background: url("assets/bg.jpg") no-repeat left center;
     background-size: cover;
     height: 100vh;
     overflow: hidden;
 }
 
-/* Основной контейнер */
-.container {
-     display: flex;
+/* Главный layout */
+.layout {
+    display: flex;
     height: 100vh;
 }
 
-.container::before {
-    content: "";
+/* Левая часть (фон) */
+.left {
     width: 50%;
 }
 
-/* Правая панель */
-.right-panel {
+/* Правая часть */
+.right {
     width: 50%;
-    max-width: 360px; /* чтобы не растягивалась на больших экранах */
     border-left: 2px solid black;
     border-right: 2px solid black;
+    background: rgba(255,255,255,0.9);
+    display: flex;
+    flex-direction: column;
+}
+
+/* ВЕРХНИЙ ПЛЕЕР */
+.player {
+    border-bottom: 2px solid black;
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+}
+
+/* Контент */
+.content {
+    flex: 1;
+    overflow: hidden;
     padding: 20px;
-    background: rgba(255, 255, 255, 0.9);
     position: relative;
-    box-sizing: border-box;
 }
 
-/* Лого */
+/* ЛОГО */
 .logo {
-    font-size: 42px;
-    margin-bottom: 15px;
+    font-size: 56px;
     text-decoration: underline;
+    margin-bottom: 20px;
 }
 
-/* Навигация */
+/* МЕНЮ */
 nav a {
     display: block;
+    font-size: 22px;
+    margin-bottom: 10px;
     text-decoration: none;
     color: black;
-    margin-bottom: 8px;
-    font-size: 18px;
 }
 
-nav a:hover {
-    color: #c26542;
-}
-
-/* Профиль */
+/* ПРОФИЛЬ */
 .profile {
     display: flex;
-    margin-top: 20px;
     gap: 10px;
+    margin-top: 20px;
 }
 
 .profile img {
-     width: 70px;
+    width: 70px;
     height: auto;
-    object-fit: contain;
 }
 
-/* Updates */
+/* UPDATES */
 .updates {
-    flex: 1;
     border: 1px solid #ccc;
-    padding: 5px;
-    background: rgba(255,255,255,0.6);
+    padding: 8px;
+    font-size: 14px;
+    width: 100%;
 }
 
 .updates-title {
-    font-size: 12px;
-    margin-bottom: 5px;
     color: #c26542;
+    margin-bottom: 5px;
 }
 
 .updates-list {
-    max-height: 70px;
+    max-height: 80px;
     overflow-y: auto;
-    font-size: 12px;
 }
 
-/* Приветствие */
+/* ПРИВЕТ */
 .welcome {
-    margin-top: 25px;
-    border: 1px solid black;
+    border: 2px solid black;
     padding: 15px;
+    margin-top: 25px;
     font-size: 18px;
 }
 
-/* Song */
-.song {
+/* НИЗ */
+.footer {
     position: absolute;
     bottom: 10px;
     left: 20px;
     right: 20px;
+}
+
+/* COUNTER */
+.counter {
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+/* SONG */
+.song {
     font-size: 14px;
     border-top: 1px solid #ccc;
     padding-top: 5px;
 }
 
-/* Музыка */
-.music-player {
-    position: fixed;
-    top: 10px;
-    left: 10px;
+/* BLOG */
+.blog-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid black;
+    padding-bottom: 10px;
 }
 
-.counter {
+.blog-title {
+    font-size: 48px;
+    text-decoration: underline;
+}
+
+.posts {
+    overflow-y: auto;
+    height: 100%;
+    margin-top: 15px;
+}
+
+/* POST */
+.post {
+    background: #f2f2f2;
+    padding: 12px;
+    margin-bottom: 12px;
+    position: relative;
+}
+
+.post-title {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.post-date {
     position: absolute;
-    bottom: 50px; /* выше song */
-    left: 0;
-    right: 0;
-    text-align: center;
-}
-
-#playBtn {
-    background: white;
-    border: 1px solid black;
-    cursor: pointer;
+    top: 10px;
+    right: 10px;
+    font-size: 12px;
+    color: #777;
 }
