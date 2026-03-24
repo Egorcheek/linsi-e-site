@@ -66,10 +66,12 @@ body {
     font-size: 64px; /* ← меняй здесь */
     text-decoration: underline;
     margin-bottom: 10px;
+    padding: 20px 20px 10px 20px;
 }
 
 /* ПЛЕЕР */
 .player {
+    border-top: 2px solid black;
     border-bottom: 2px solid black; /* только одна линия */
     padding: 10px 20px;
     display: flex;
@@ -114,8 +116,14 @@ nav a {
     display: block;
     font-size: 24px;
     margin-bottom: 6px;
+    padding: 0 20px 10px 20px;
     text-decoration: none;
     color: black;
+    transition: 0.2s;
+}
+
+nav a:hover {
+    color: #c26542; /* ← твой акцент */
 }
 
 #page-title {
@@ -250,4 +258,20 @@ nav a {
     width: 50px;
     height: 50px;
     object-fit: cover;
+}
+
+.links {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.links a {
+    font-size: 20px;
+    text-decoration: none;
+    color: black;
+}
+
+.links a:hover {
+    color: #c26542;
 }
