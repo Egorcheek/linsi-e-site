@@ -41,6 +41,16 @@ body {
     height: 100%;
     padding: 20px; /* ← ВОТ ЭТО ВЕРНЁТ ОТСТУПЫ */
     box-sizing: border-box;
+    overflow: hidden;
+}
+
+#page-content {
+    flex: 1;
+    overflow-y: auto;
+}
+
+.music-list, .posts {
+    overflow-y: auto;
 }
 
 .spacer {
