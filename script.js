@@ -109,27 +109,40 @@ function loadPage(page) {
                 <img src="assets/avatar.jpg">
                 <div class="updates">
                     <div class="updates-title">Last updates:</div>
-                    <div class="updates-list">
-                        <p>+ added track</p>
-                        <p>+ new blog post</p>
-                    </div>
-                </div>
-            </div>
+                    content.innerHTML = 
+                        <div class="profile">
+                            <img src="assets/avatar.jpg">
+                            <div class="updates">
+                                <div class="updates-title">Last updates:</div>
+                                <div class="updates-list"></div>
+                            </div>
+                        </div>
 
-            <div class="welcome">
-                Привет! Добро пожаловать! AOAOAOOAOAOAOAOAOOAOAOAOOOOOAA
-            </div>
+                        <div class="welcome">
+                            Привет! Добро пожаловать!
+                        </div>
 
-            <div class="footer">
-                <div class="counter">
-                    <img src="https://hitwebcounter.com/counter/counter.php?page=21484535&style=0024&nbdigits=5&type=page&initCount=0">
-                </div>
-                <div class="song">
-                    song of the day: ...
-                </div>
-            </div>
-        `;
+                        <div class="footer">
+                            <div class="counter">
+                                <img src="https://hitwebcounter.com/counter/counter.php?page=21484535&style=0024&nbdigits=5&type=page&initCount=0">
+                            </div>
+                            <div class="song">
+                                song of the day: ...
+                            </div>
+                      </div>
+    `;
     }
+    fetch('updates.json')
+      .then(res => res.json())
+      .then(updates => {
+        const list = document.querySelector('.updates-list');
+
+        updates.forEach(item => {
+          const el = document.createElement('p');
+          el.textContent = item.text;
+          list.appendChild(el);
+        });
+    });
 
     if (page === "blog") {
         titleEl.textContent = "blog";
