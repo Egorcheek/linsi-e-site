@@ -59,6 +59,7 @@ body {
     border-top: 2px solid black;
     border-bottom: 2px solid black;
     padding: 8px 20px;
+    font-size: 14px;
 }
 
 /* МЕНЮ */
@@ -149,6 +150,7 @@ nav a {
     overflow-y: auto;
     height: 100%;
     margin-top: 15px;
+    flex: 1;
 }
 
 /* POST */
