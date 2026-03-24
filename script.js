@@ -117,7 +117,7 @@ function loadPage(page) {
             </div>
 
             <div class="welcome">
-                Привет! Добро пожаловать!
+                Привет! Добро пожаловать! AOAOAOOAOAOAOAOAOOAOAOAOOOOOAA
             </div>
 
             <div class="footer">
