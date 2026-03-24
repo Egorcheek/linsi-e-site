@@ -115,8 +115,9 @@ document.querySelectorAll("nav a").forEach(link => {
 });
 
 function loadPage(page) {
-
+    const titleEl = document.getElementById("page-title");
     if (page === "home") {
+        titleEl.innerHTML = "";
         content.innerHTML = `
             <div class="welcome">
                 Привет!<br>Добро пожаловать на мой сайт!
@@ -125,6 +126,7 @@ function loadPage(page) {
     }
 
     if (page === "blog") {
+        titleEl.innerHTML = "blog";
         fetch('posts.json')
           .then(res => res.json())
           .then(posts => {
@@ -147,6 +149,7 @@ function loadPage(page) {
     }
 
     if (page === "music") {
+        titleEl.innerHTML = "music";
         fetch('tracks.json')
           .then(res => res.json())
           .then(tracks => {
@@ -176,5 +179,35 @@ function loadPage(page) {
 
 }
 
+//home only блоки
+document.getElementById("page-title").innerHTML = "";
+
+content.innerHTML = `
+    <div class="profile">
+        <img src="assets/avatar.jpg">
+        <div class="updates">
+            <div class="updates-title">Last updates:</div>
+            <div class="updates-list">
+                <p>+ added track</p>
+                <p>+ new blog post</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="welcome">
+        Привет!<br>Добро пожаловать на мой сайт!
+    </div>
+
+    <div class="spacer"></div>
+
+    <div class="footer">
+        <div class="counter">
+            <img src="https://hitwebcounter.com/counter/counter.php?page=21484535&style=0024&nbdigits=5&type=page&initCount=0">
+        </div>
+        <div class="song">
+            song of the day: ...
+        </div>
+    </div>
+`;
 // первая загрузка
 loadPage("home");
