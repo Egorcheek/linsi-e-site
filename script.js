@@ -207,7 +207,7 @@ if (page === "music") {
             el.onclick = () => {
                 loadTrack(i);
                 audio.play();
-                playBtn.textContent = "❚❚"; // ← фикс
+                playBtn.textContent = "❚❚"; // ← ОБЯЗАТЕЛЬНО
             };
 
             container.appendChild(el);
