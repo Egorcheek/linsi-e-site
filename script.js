@@ -34,7 +34,16 @@ fetch('tracks.json')
 function loadTrack(i) {
     current = i;
     audio.src = tracks[i].file;
-    nameEl.textContent = tracks[i].title;
+    nameEl.innerHTML = `<span>${tracks[i].title}</span>`;
+
+// проверка на переполнение
+setTimeout(() => {
+    if (nameEl.scrollWidth > nameEl.clientWidth) {
+        nameEl.classList.add("scrolling");
+    } else {
+        nameEl.classList.remove("scrolling");
+    }
+}, 100);
 }
 
 // play
@@ -165,34 +174,47 @@ function loadPage(page) {
           });
     }
 
-    if (page === "music") {
-        titleEl.textContent = "music";
+if (page === "music") {
+    titleEl.textContent = "music";
 
-        fetch('tracks.json')
-          .then(res => res.json())
-          .then(list => {
+    fetch('tracks.json')
+      .then(res => res.json())
+      .then(list => {
 
-            content.innerHTML = `<div class="music-list"></div>`;
-            const container = document.querySelector(".music-list");
+        content.innerHTML = `<div class="music-list"></div>`;
+        const container = document.querySelector(".music-list");
 
-            list.forEach((track, i) => {
-                const el = document.createElement("div");
-                el.className = "track";
+        list.forEach((track, i) => {
 
-                el.innerHTML = `
-                    <span>${track.title}</span>
-                `;
+            const el = document.createElement("div");
+            el.className = "track";
 
-                el.onclick = () => {
-                    loadTrack(i);
-                    audio.play();
-                };
+            el.innerHTML = `
+                <img src="${track.cover}">
+                <div class="track-info">
+                    <span class="track-title">${track.title}</span>
+                    <span class="track-duration">--:--</span>
+                </div>
+            `;
 
-                container.appendChild(el);
-            });
+            // длительность
+            const tempAudio = new Audio(track.file);
+            tempAudio.onloadedmetadata = () => {
+                const dur = format(tempAudio.duration);
+                el.querySelector(".track-duration").textContent = dur;
+            };
 
-          });
-    }
+            el.onclick = () => {
+                loadTrack(i);
+                audio.play();
+                playBtn.textContent = "❚❚"; // ← фикс
+            };
+
+            container.appendChild(el);
+        });
+
+      });
+}
 
     if (page === "links") {
         titleEl.textContent = "links";
