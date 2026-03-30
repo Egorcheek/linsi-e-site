@@ -302,77 +302,55 @@ nav a:hover {
 
 @media (max-width: 768px) {
 
-    /* убираем фон-секции */
-    .left, .right {
-        display: none;
-    }
-
-    /* основной блок на весь экран */
-    .center {
-        width: 100%;
-        border-left: none;
-        border-right: none;
-        min-width: unset;
-    }
-
-    /* фон — только слева, как ты хотел */
-    body {
-        background-position: left top;
-        background-size: cover;
-    }
-
-    /* убираем боковые отступы */
-    .logo {
-        padding: 15px;
-        font-size: 48px;
-    }
-
-    nav a {
-        padding: 0 15px 8px 15px;
-        font-size: 20px;
-    }
-
     .player {
-        padding: 10px;
-        flex-wrap: wrap; /* чтобы не ломался */
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
     }
 
-    /* первая строка */
-    .player button,
-    #track-name {
+    /* ---------- ПЕРВАЯ СТРОКА ---------- */
+    .player button {
         order: 1;
     }
 
-    /* вторая строка */
+    #track-name {
+        order: 1;
+        flex: 1;              /* занимает остаток строки */
+        min-width: 0;         /* важно для обрезки текста */
+    }
+
+    /* ---------- ВТОРАЯ СТРОКА ---------- */
+    #time {
+        order: 2;
+        width: auto;
+        font-size: 13px;
+    }
+
+    #progress {
+        order: 2;
+        flex: 1;              /* растягивается */
+        min-width: 0;
+    }
+
+    #volume {
+        order: 2;
+        width: 70px;
+    }
+
+    /* заставляем вторую строку начинаться с новой строки */
+    #time {
+        margin-left: 0;
+    }
+
+    /* ключевой момент — перенос строки */
     #time,
     #progress,
     #volume {
-        order: 2;
-        width: 100%;
+        flex-basis: auto;
     }
 
-    /* прогресс растягиваем */
-    #progress {
-        flex: 1;
-    }
-
-    /* выравнивание второй строки */
+    /* ВАЖНО: перенос */
     #time {
-        width: auto;
-        font-size: 14px;
+        margin-top: 5px;
     }
-
-    #volume {
-        width: 80px;
-    }
-
-    .content {
-        padding: 15px;
-    }
-
-    #page-title {
-        margin: 10px 15px;
-        font-size: 28px;
-    }
-
 }
