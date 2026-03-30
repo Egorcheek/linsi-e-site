@@ -350,7 +350,7 @@ nav a:hover {
     /* РАЗДЕЛИТЕЛЬ СТРОКИ */
     #time {
         order: 2;
-        /* flex-basis: 100%; */
+        flex-basis: 100%; 
         margin-top: 5px;
         font-size: 13px;
     }
