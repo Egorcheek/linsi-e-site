@@ -302,6 +302,34 @@ nav a:hover {
 
 @media (max-width: 768px) {
 
+    .left, .right {
+    display: none;
+    }
+
+    /* основной блок на весь экран */
+    .center {
+        width: 100%;
+        border-left: none;
+        border-right: none;
+        min-width: unset;
+    }
+
+    /* фон — только слева, как ты хотел */
+    body {
+        background-position: left top;
+        background-size: cover;
+    }
+
+    /* убираем боковые отступы */
+    .logo {
+        padding: 15px;
+        font-size: 48px;
+    }
+
+    nav a {
+        padding: 0 15px 8px 15px;
+        font-size: 20px;
+
     .player {
         display: flex;
         flex-wrap: wrap;
