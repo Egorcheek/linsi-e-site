@@ -303,10 +303,9 @@ nav a:hover {
 @media (max-width: 768px) {
 
     .left, .right {
-    display: none;
+        display: none;
     }
 
-    /* основной блок на весь экран */
     .center {
         width: 100%;
         border-left: none;
@@ -314,13 +313,11 @@ nav a:hover {
         min-width: unset;
     }
 
-    /* фон — только слева, как ты хотел */
     body {
         background-position: left top;
         background-size: cover;
     }
 
-    /* убираем боковые отступы */
     .logo {
         padding: 15px;
         font-size: 48px;
@@ -329,6 +326,9 @@ nav a:hover {
     nav a {
         padding: 0 15px 8px 15px;
         font-size: 20px;
+    }
+
+    /* ===== ПЛЕЕР ===== */
 
     .player {
         display: flex;
@@ -336,52 +336,34 @@ nav a:hover {
         gap: 6px;
     }
 
-    /* ---------- ПЕРВАЯ СТРОКА ---------- */
+    /* ПЕРВАЯ СТРОКА */
     .player button {
         order: 1;
     }
 
     #track-name {
         order: 1;
-        flex: 1;              /* занимает остаток строки */
+        flex: 1;
         min-width: 0;
-        width: 100%;/* важно для обрезки текста */
     }
 
-    /* ---------- ВТОРАЯ СТРОКА ---------- */
+    /* РАЗДЕЛИТЕЛЬ СТРОКИ */
     #time {
         order: 2;
-        width: auto;
+        flex-basis: 100%; /* ← ВОТ ЭТО КЛЮЧ */
+        margin-top: 5px;
         font-size: 13px;
     }
 
+    /* ВТОРАЯ СТРОКА */
     #progress {
         order: 2;
-        flex: 1;              /* растягивается */
+        flex: 1;
         min-width: 0;
     }
 
     #volume {
         order: 2;
         width: 70px;
-    }
-
-    /* заставляем вторую строку начинаться с новой строки */
-    #time {
-        margin-left: 0;
-
-    
-    }
-
-    /* ключевой момент — перенос строки */
-    #time,
-    #progress,
-    #volume {
-        flex-basis: auto;
-    }
-
-    /* ВАЖНО: перенос */
-    #time {
-        margin-top: 5px;
     }
 }
