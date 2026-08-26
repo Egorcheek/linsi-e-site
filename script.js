@@ -101,7 +101,7 @@ volume.oninput = () => {
 
 // -------- НАВИГАЦИЯ --------
 
-document.querySelectorAll("nav a").forEach(link => {
+document.querySelectorAll("nav a[data-page]").forEach(link => {
     link.addEventListener("click", function(e) {
         e.preventDefault();
         loadPage(this.dataset.page);
